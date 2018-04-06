@@ -1,4 +1,4 @@
-FROM php:7.1.12-fpm-alpine
+FROM php:5.6.35-fpm-alpine
 
 LABEL maintainer="Ric Harvey <ric@ngd.io>"
 
@@ -196,7 +196,7 @@ RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repo
       --with-jpeg-dir=/usr/include/ && \
     #curl iconv session
     docker-php-ext-install pdo_mysql pdo_sqlite mysqli mcrypt gd exif intl xsl json soap dom zip opcache && \
-    pecl install xdebug && \
+    pecl install xdebug-2.5.5 && \
     docker-php-source delete && \
     mkdir -p /etc/nginx && \
     mkdir -p /var/www/app && \
